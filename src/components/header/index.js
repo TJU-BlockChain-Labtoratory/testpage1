@@ -7,8 +7,12 @@ const Header = () => (
 		<header class={style.header}>
 			<Link href="/"><img src ="/assets/logo+white.png"/></Link>
 			<nav>
-				<Link activeClassName={style.active} href="/blogs">Blogs</Link>
-				<Link activeClassName={style.active} href="/contact">Contact me</Link>
+			<Link activeClassName={style.active} href="/menu">Menu</Link>
+			<Link activeClassName={style.active} href="/blogs">News</Link>
+			<Link activeClassName={style.active} href="/notice">Notice</Link>
+			<Link activeClassName={style.active} href="/members">Members</Link>
+			<Link activeClassName={style.active} href="/others">Others</Link>
+			<Link activeClassName={style.active} href="/contact">Contact me</Link>
 			</nav>
 		</header>
 	</div>
