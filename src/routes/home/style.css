@@ -7,6 +7,36 @@
   display: flex;
 }
 
+.NewsContainer{
+	margin:auto;
+	width: 800px;
+	height: 300px;
+	overflow: hidden;
+}
+.breakNews{
+	width: 2800px;
+	animation: switch 15s ease-out infinite;
+}
+.breakNews img{
+	float: left;
+	width: 400px;
+	height: 300px;
+}
+@keyframes switch {
+	0%, 20% {
+		margin-left: 0;
+	}
+	25%, 45% {
+		margin-left: -400px;
+	}
+	50%, 70% {
+		margin-left: -800px;
+	}
+	75%, 95% {
+		margin-left: -1200px;
+	}
+}
+
 .imageContainer {
   flex: 1;
 }
@@ -18,24 +48,25 @@
 	background-position: center;
 }
 
+
 .quote {
   flex: 1;
 	display: flex;
 	flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("/assets/quotes.svg");
+  /* background-image: url("/assets/quotes.svg");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 .details{
-	font-family: serif;
-	font-size: 32px;
-	font-style: italic;
+	font-family: 'YouYuan','';
+	font-size: 16px;
 	padding-left: 32px;
+	letter-spacing: 8px;
 	text-align: center;
-	color: gray;
+	color: rgb(0, 81, 157);
 	padding-bottom: 32px;
 }
 
