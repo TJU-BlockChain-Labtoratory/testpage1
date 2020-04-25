@@ -1,21 +1,40 @@
+.fixtop{
+	margin-top: 100px;
+}
+
 .header {
-	height: 100px;;
+	height: 100px;
+	background-color: rgba(0, 81, 157, 0.733);;
+	z-index:1;
+	margin-left: -28px;
+	top: 0;
+    width: 101%;
+	position: fixed;
 }
 
 .header h1 {
 	float: left;
 	margin: 0;
-	padding: 0 15px;
-	font-size: 40px;
+	padding: 10px 30px;
+	font-size: 32px;
 	line-height: 100px;
 	font-weight: 400;
-	font-family: 'Courgette', 'Helvetica Neue', arial, sans-serif;;
-	color: #FFC107;
+	letter-spacing: 2px;
+	font-family: YouYuan;
+	color: rgb(255, 255, 255);;
+}
+
+.header img{
+	float : left;
+	padding: 0 20px;
+	
 }
 
 .header nav {
 	float: right;
-	font-size: 100%;
+	font-size: 20px;
+	padding: 10px 15px;
+	margin-right: 10px;
 }
 
 .header nav a {
@@ -25,9 +44,9 @@
 	margin: 0 15px;
 	min-width: 50px;
 	text-align: center;
-	background: rgba(255,255,255,0);
+	background: rgba(255, 255, 255, 0);
 	text-decoration: none;
-	color: #333;
+	color :#dee4f0;
 	will-change: background-color;
 	transition-property: color;
 	transition-duration: 300ms;
@@ -38,13 +57,13 @@
 .header nav a:hover,
 .header nav a:active,
 .header nav a.active {
-	color: #FFC107;
+	color: white;
 }
 
 .header nav a:after {
 	content: '';
 	width: 0%;
-	border-bottom: 3px solid #FFC107;
+	border-bottom: 3px solid white;
 	position: absolute;
 	bottom: -12px;
 	left: 0;
@@ -61,8 +80,8 @@
 	.header h1{
 		font-size: 2rem;
 	}
-  .header nav a{
+	.header nav a{
 		line-height: 100px;
 		margin: 0 8px;
-  }
+	}
 }
