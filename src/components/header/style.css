@@ -21,34 +21,20 @@
 	font-weight: 400;
 	letter-spacing: 2px;
 	font-family: YouYuan;
-<<<<<<< HEAD
-	color: rgb(255, 255, 255);;
-=======
 	color: rgb(0, 81, 157);;
->>>>>>> fyh
 }
 
 .header img{
 	float : left;
-<<<<<<< HEAD
-	padding: 8px 20px;
-=======
 	padding: 0 20px;
->>>>>>> fyh
 	
 }
 
 .header nav {
 	float: right;
-<<<<<<< HEAD
-	font-size: 18px;
-	padding: 10px 15px;
-	margin-right: 8px;
-=======
 	font-size: 20px;
 	padding: 10px 15px;
 	margin-right: 10px;
->>>>>>> fyh
 }
 
 .header nav a {

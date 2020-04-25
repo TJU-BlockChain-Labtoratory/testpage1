@@ -7,10 +7,6 @@ const Members = (props) => {
 			<h1 class={style.pageTitle}>Members</h1>
 			<div class={style.formWrapper}>
 				<p class={style.pageBody}>
-<<<<<<< HEAD
-					<div>你好</div>
-					<div>If you are interested in my work and are looking to contact me for a contract please use the following form to contact me.</div>
-=======
 					<div>
 						<div>
 							<img src="/assets/wjr.png" width="200" height="250" />
@@ -38,7 +34,6 @@ const Members = (props) => {
 							</p>
 						</div>
 					</div>
->>>>>>> fyh
 					<div>&nbsp;</div>
 					<div>Cheers 🍻</div>
 				</p>
