@@ -24,35 +24,32 @@ const Home = () => {
 				</div>
 				<div class={style.quote}>
 					<div class={style.details}>
-						Jane presents traditional spanish art with a modern twist. Her work is
-						excellent quality, her technique is brilliant and her love of the
-						subject matter shines through.
+						<h2>天津大学-好扑科技区块链实验室 介绍</h2>
+						<p>
+							深耕区块链技术在物联网、供应链、医疗卫生、信息安全、智慧政务、公益慈善等领域的应用探索，坚持产学研发展思路，力求在做好基础理论研究的同时，提升科研成果转化率，切实让区块链造福经济社会，为社会治理能力的提升和新经济的创新发展贡献力量。
+						</p>
+						<p>
+							天津大学-好扑科技区块链实验室，受到了学校各级领导及机构的重视，面向受众将不局限于智能与计算机学部，管理与经济学部、新媒体与传播学院、应用数学中心等各学院及组织未来都可会参与进来，以实现学科区域联动和教研资源共建共享。
+						</p>
 					</div>
-					<div class={style.author}>- The Local Newspaper</div>
 				</div>
 			</div>
 			<div class={style.bio}>
-				<p class={style.bioleft}>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-				<p class={style.bioright}>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-					accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-					ab illo inventore veritatis et quasi architecto beatae vitae dicta
-					sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-					aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-					qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-					dolorem ipsum quia dolor sit amet, consectetur.
-				</p>
+				
+			</div>
+			<div class={style.NewsContainer}>
+				<div class={style.breakNews}>
+					<img src = '/assets/肥宅美少女hhh.jpg' />
+					<img src = '/assets/交响.jpg' />
+					<img src = '/assets/铠甲.jpg' />
+					<img src = '/assets/吸血鬼（帅气的女孩子hhh）.jpg' />
+					<img src = '/assets/logo(s).png'/>
+				</div>
+				
 			</div>
 		</div>
 	);
 };
 
 export default Home;
+
