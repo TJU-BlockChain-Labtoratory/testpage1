@@ -37,16 +37,6 @@ const Home = () => {
 			<div class={style.bio}>
 				
 			</div>
-			<div class={style.NewsContainer}>
-				<div class={style.breakNews}>
-					<img src = '/assets/肥宅美少女hhh.jpg' />
-					<img src = '/assets/交响.jpg' />
-					<img src = '/assets/铠甲.jpg' />
-					<img src = '/assets/吸血鬼（帅气的女孩子hhh）.jpg' />
-					<img src = '/assets/logo(s).png'/>
-				</div>
-				
-			</div>
 		</div>
 	);
 };
