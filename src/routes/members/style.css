@@ -1,16 +1,19 @@
 .pageContact {
+  margin : 110px 50px 0;
   padding: 0 5%;
 }
 
-.pageTitle {
+.pageTitle 
+{
   position: relative;
   display: inline-block;
   font-weight: 500;
+  letter-spacing: 2px;
 }
 
 .pageTitle:after {
   position: absolute;
-  bottom: -5px;
+  bottom: -7px;
   left: 0px;
   content: '';
   width: 75%;
@@ -19,28 +22,48 @@
 
 .pageBody {
   font-size: 1.2rem;
-  flex: 1;
+  margin :10px 50px 0;
+  flex-direction: column;
 }
 
-.pageContact input, .pageContact textarea {
+.block{
   width: 100%;
-  font-size: 1.1rem;
-  padding: 8px;
-  border: 1px solid #999;
+  display: flex;
+  margin: 15px 0 30px;
+  flex:1 1 auto;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 0 10px 5px rgb(232, 232, 255);
+}
+
+.imageContainer{
+  width:25%;
+}
+
+.imageContainer img{
+  height: 250px;
+  width: 200px;
+  padding: 20px;
+}
+
+.introduction{
+  width: 75%;
+  padding :0 20px 20px 20px;
+  line-height: 1.5em;
+}
+
+.introduction h2{
+  font-family: 'Microsoft Yahei';
+  letter-spacing: 2px;
+}
+
+.introduction font{
+  font-size: 14px;
+  color: rgb(146, 145, 145)
 }
 
 .pageContact .formWrapper {
   display: flex;
-}
-
-.pageContact form {
-  flex: 1;
-}
-
-.pageContact button {
-  padding: 8px;
-  font-size: 1rem;
-  border-radius: 5px;
 }
 
 @media all and (max-width: 728px) {

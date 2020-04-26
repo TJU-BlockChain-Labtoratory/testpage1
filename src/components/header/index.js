@@ -5,14 +5,14 @@ import style from './style';
 const Header = () => (
 	<div class={style.fixtop}>
 		<header class={style.header}>
-			<Link href="/"><img src ="/assets/logo+white.png"/></Link>
+			<img src ="/assets/logo+white.png"/>
 			<nav>
-			<Link activeClassName={style.active} href="/menu">Menu</Link>
-			<Link activeClassName={style.active} href="/blogs">News</Link>
-			<Link activeClassName={style.active} href="/notice">Notice</Link>
-			<Link activeClassName={style.active} href="/members">Members</Link>
-			<Link activeClassName={style.active} href="/others">Others</Link>
-			<Link activeClassName={style.active} href="/contact">Contact me</Link>
+				<Link activeClassName={style.active} href="/">首页</Link>
+				<Link activeClassName={style.active} href="/blogs">新闻</Link>
+				<Link activeClassName={style.active} href="/notice">公告</Link>
+				<Link activeClassName={style.active} href="/members">主要成员</Link>
+				<Link activeClassName={style.active} href="/others">其他</Link>
+				<Link activeClassName={style.active} href="/contact">联系我们</Link>
 			</nav>
 		</header>
 	</div>

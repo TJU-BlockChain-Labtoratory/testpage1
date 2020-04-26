@@ -7,7 +7,7 @@ const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
 	return (
 		<div class={style.pageBlogs}>
-			<h1 class={style.pageTitle}>News</h1>
+			<h1 class={style.pageTitle}>新闻</h1>
 			{ getBlogsListing(data, isLoading) }
 		</div>
 	);
@@ -30,7 +30,7 @@ function getBlogsListing(data, isLoading) {
 			<>
 				{blogs.edges.map(blog => (
 				<Link href={`/blog/${blog.id}`}>
-					<article>
+					<article class={style.block}>
 						<h2>{blog.details.title}</h2>
 						<div>
 							{
@@ -41,6 +41,7 @@ function getBlogsListing(data, isLoading) {
 							{blog.preview}
 						</p>
 					</article>
+						
 				</Link>
 			))}
 			</>
