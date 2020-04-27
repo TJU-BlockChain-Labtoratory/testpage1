@@ -26,15 +26,26 @@ function getBlogsListing(data, isLoading) {
 	}
 	if (data && data.data) {
 		const { data: blogs } = data;
+		
+		var notnews = new Array();
+		var j = 0;
+		for( var i = 0; i < blogs.edges.length ; i++ )
+		  if ( blogs.edges[i].details.tags.substr(1,blogs.edges[i].details.tags.length-1).split(',')[0] != 'news')
+		  { 
+	         notnews[j] = blogs.edges[i];
+		     j++;
+		  }
+		
+
 		return (
 			<>
-				{blogs.edges.map(blog => (
+				{notnews.map(blog => (
 				<Link href={`/blog/${blog.id}`}>
 					<article class={style.block}>
 						<h2>{blog.details.title}</h2>
 						<div>
 							{
-								(blog.details.tags.substr(1, blog.details.tags.length - 2).split(',') || []).map(tag => <span class={style.tag}>{tag}</span>)
+								(blog.details.tags.substr(0, blog.details.tags.length - 1).split(',') || []).map(tag => <span class={style.tag}>{tag}</span>)
 							}
 						</div>
 						<p class={style.preview}>
