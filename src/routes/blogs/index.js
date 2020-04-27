@@ -11,10 +11,10 @@ const blogs = (props) => {
 			<h1 class={style.pageTitle}>新闻</h1>
 			{ getNewsListing(data, isLoading) }
 		</div>
-		<div class={style.pageBlogs}>
+	    <div class={style.pageBlogs}>
 			<h1 class={style.pageTitle}>公告</h1>
 			{ getNoticesListing(data, isLoading) }
-		</div>
+	    </div>
 	</div>
 	);
 };
@@ -52,7 +52,7 @@ function getNewsListing(data, isLoading) {
 						<h2>{blog.details.title}</h2>
 						<div>
 							{
-								 <span class={style.tag}>{notnews.details.time.substr(0,notices.details.time.length)}</span>
+								 <span class={style.tag}>{blog.details.time}</span>
 							}
 						</div>
 						<p class={style.preview}>
@@ -100,7 +100,7 @@ function getNoticesListing(data, isLoading) {
 						<h2>{blog.details.title}</h2>
 						<div>
 							{
-								 <span class={style.tag}>{notnews.details.time.substr(0,notices.details.time.length)}</span>
+								 <span class={style.tag}>{blog.details.time}</span>
 							}
 						</div>
 						<p class={style.preview}>
