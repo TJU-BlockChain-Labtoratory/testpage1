@@ -7,7 +7,7 @@ const notices = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
 	return (
 		<div class={style.pageBlogs}>
-			<h1 class={style.pageTitle}>新闻</h1>
+			<h1 class={style.pageTitle}>公告</h1>
 			{ getBlogsListing(data, isLoading) }
 		</div>
 	);
@@ -30,7 +30,7 @@ function getBlogsListing(data, isLoading) {
 		var notnews = new Array();
 		var j = 0;
 		for( var i = 0; i < blogs.edges.length ; i++ )
-		  if ( blogs.edges[i].details.tags.substr(0,blogs.edges[i].details.tags.length).split(',')[0] != 'news')
+		  if ( blogs.edges[i].details.tags.substr(0,blogs.edges[i].details.tags.length).split(',') != 'news')
 		  { 
 	         notnews[j] = blogs.edges[i];
 		     j++;
@@ -45,7 +45,7 @@ function getBlogsListing(data, isLoading) {
 						<h2>{blog.details.title}</h2>
 						<div>
 							{
-								(blog.details.tags.substr(0, blog.details.tags.length).split(',') || []).map(tag => <span class={style.tag}>{tag}</span>)
+								 <span class={style.tag}>{notnews.details.time.substr(0,notices.details.time.length)}</span>
 							}
 						</div>
 						<p class={style.preview}>
