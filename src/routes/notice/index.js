@@ -9,7 +9,6 @@ const notices = (props) => {
 		<div class={style.pageBlogs}>
 			<h1 class={style.pageTitle}>公告</h1>
 			{ getBlogsListing(data, isLoading) }
-			const.log(data);
 		</div>
 	);
 };
@@ -25,6 +24,7 @@ function getBlogsListing(data, isLoading) {
 			</article>
 		);
 	}
+	console.log(data);
 	if (data && data.data) {
 		const { data: blogs } = data;
 		
