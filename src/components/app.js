@@ -11,7 +11,6 @@ import Contact from '../routes/contact';
 import Members from '../routes/members';
 import Others from '../routes/others';
 import Menu from '../routes/menu';
-import Notice from '../routes/notice';
 import ContactSuccess from '../routes/contact-success';
 import NotFoundPage from '../routes/notfound';
 /*
@@ -46,7 +45,6 @@ export default class App extends Component {
 						<Contact path="/contact/" />
 						<Others path="/others" /> 
 						<Menu path="/menu" /> 
-						<Notice path="/notice" /> 
 						<ContactSuccess path="/contact/success" />
 						<NotFoundPage type="404" default />
 					</Router>
