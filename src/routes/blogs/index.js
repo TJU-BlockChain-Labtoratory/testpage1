@@ -30,7 +30,7 @@ function getBlogsListing(data, isLoading) {
 		var notnews = new Array();
 		var j = 0;
 		for( var i = 0; i < blogs.edges.length ; i++ )
-		  if ( blogs.edges[i].details.tags.substr(0,blogs.edges[i].details.tags.length).split(',')[0] != 'news')
+		  if ( blogs.edges[i].details.tags.substr(0,blogs.edges[i].details.tags.length).split(',')[0] == 'news')
 		  { 
 	         notnews[j] = blogs.edges[i];
 		     j++;
