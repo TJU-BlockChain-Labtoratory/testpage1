@@ -9,6 +9,7 @@ const notices = (props) => {
 		<div class={style.pageBlogs}>
 			<h1 class={style.pageTitle}>公告</h1>
 			{ getBlogsListing(data, isLoading) }
+			const.log(data);
 		</div>
 	);
 };
