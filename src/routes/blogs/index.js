@@ -7,11 +7,11 @@ const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
 	return (
 	<div>
-		<div class={style.pageBlogs}>
+		<div class={style.pageNewsAndNotices}>
 			<h1 class={style.pageTitle}>新闻</h1>
 			{ getNewsListing(data, isLoading) }
 		</div>
-	    <div class={style.pageBlogs}>
+	    <div class={style.pageNewsAndNotices}>
 			<h1 class={style.pageTitle}>公告</h1>
 			{ getNoticesListing(data, isLoading) }
 	    </div>
