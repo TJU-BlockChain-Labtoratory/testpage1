@@ -1,11 +1,6 @@
-.pageNewsAndNotices {
-  margin : left;
+.pageBlogs {
+  margin : 110px 50px 0;
   padding: 0 5%;
-  float: left;
-  width: 50%;
-  height: 600px;
-  /*overflow-y: scroll;*/
-  /*border:5px double #3092ee7c; */
 }
 
 .pageTitle {
