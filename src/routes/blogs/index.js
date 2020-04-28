@@ -8,14 +8,14 @@ const blogs = (props) => {
 	return (
 	<div>
 		<div class={style.pageNewsAndNotices}>
-			<h1 class={style.pageTitle}>新闻</h1>
-			{ getListing(data, isLoading) }
+			<h1 class={style.pageTitle}>新闻动态</h1>
+			{ getNewsListing(data, isLoading) }
 		</div>
 	</div>
 	);
 };
 
-function getListing(data, isLoading) {
+function getNewsListing(data, isLoading) {
 	if (isLoading) {
 		return (
 			<article class={style.loadingPlaceholder}>
@@ -29,15 +29,25 @@ function getListing(data, isLoading) {
 	console.log(data);
 	if (data && data.data) {
 		const { data: blogs } = data;
+		
+		var notnews = new Array();
+		var j = 0;
+		for( var i = 0; i < blogs.edges.length ; i++ ){
+			 notnews[j] = blogs.edges[i];
+			 console.log()
+		     j++;
+		  }
+		
+
 		return (
 			<>
-				{blogs.map(blog => (
+				{notnews.map(blog => (
 				<Link href={`/blog/${blog.id}`}>
 					<article class={style.block}>
 						<h2>{blog.details.title}</h2>
 						<div>
 							{
-								(blog.details.tags.substr(1, blog.details.tags.length - 2).split(',') || []).map(tag => <span class={style.tag}>{tag}</span>)
+								 <span class={style.tag}>{blog.details.time}</span>
 							}
 						</div>
 						<p class={style.preview}>
