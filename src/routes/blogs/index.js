@@ -33,7 +33,8 @@ function getNewsListing(data, isLoading) {
 		var notnews = new Array();
 		var j = 0;
 		for( var i = 0; i < blogs.edges.length ; i++ ){
-	         notnews[j] = blogs.edges[i];
+			 notnews[j] = blogs.edges[i];
+			 console.log()
 		     j++;
 		  }
 		
