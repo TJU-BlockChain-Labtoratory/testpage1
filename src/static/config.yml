@@ -1,6 +1,6 @@
 backend:
   name: github
-  branch: TJU-BlockChain-Labtoratory/HomePage
+  repo: TJU-BlockChain-Labtoratory/HomePage
 media_folder: src/assets
 public_folder: /assets
 collections:
