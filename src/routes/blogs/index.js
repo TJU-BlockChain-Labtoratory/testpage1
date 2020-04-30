@@ -33,68 +33,70 @@ function getNewsListing(data, isLoading ,pageSize) {
 		);
 	}
 	if (data && data.data) {
-		var currPage;
+		
 		if(typeof window !== undefined){
+			var currPage;
 			currPage = Number(window.localStorage.currPage);
-		}
-		const { data: blogs } = data;
-		console.log(blogs.currPage);
-		var news = new Array();
-		var j = currPage * pageSize;
+			const { data: blogs } = data;
+			console.log(blogs.currPage);
+			var news = new Array();
+			var j = currPage * pageSize;
 
-		for(let i = j; i < blogs.edges.length; i++ ){
-			var temp = blogs.edges[i].details.tags.split(',');
-			let judge = temp.every(function (temp){
-				return temp != "achievement";
-			});
-			console.log(i , j , temp.join(),judge);
-			if(judge == true){
-				
-					news[j] = blogs.edges[i];
-					j++;
-				
-				if( j >= ((currPage+1)*pageSize)){
-					break;
-				}
-			}		     
-		}
-		console.log(j);
-
-		if(typeof window !== undefined && window.localStorage.total == undefined){
-			let total = blogs.edges.length;
-		    window.localStorage.setItem("total",total.toString());
-		}
-		if(typeof window !== undefined && window.localStorage.totalPage == undefined){
-			let totalPage = Math.ceil(blogs.edges.length/pageSize); 
-			window.localStorage.setItem("totalPage",totalPage.toString());
-		}
-
-		return (
-			<div>
-				<div>
-					{news.map(blog => (
-					<Link href={`/blog/${blog.id}`}>
-						<article class={style.block}>
-							<h2>{blog.details.title}</h2>
-							<div>
-								{
-									<span class={style.tag}>{blog.details.tags.split(",")[0]}</span>
-								}
-							</div>
-							<p class={style.preview}>
-								{blog.preview}
-							</p>
-						</article>
-							
-					</Link>
-				))}
-				</div>
-				<div>
+			for(let i = j; i < blogs.edges.length; i++ ){
+				var temp = blogs.edges[i].details.tags.split(',');
+				let judge = temp.every(function (temp){
+					return temp != "achievement";
+				});
+				console.log(i , j , temp.join(),judge);
+				if(judge == true){
 					
-					{ getIndex()}
+						news[j] = blogs.edges[i];
+						j++;
+					
+					if( j >= ((currPage+1)*pageSize)){
+						break;
+					}
+				}		     
+			}
+			console.log(j);
+
+			if(typeof window !== undefined && window.localStorage.total == undefined){
+				let total = blogs.edges.length;
+				window.localStorage.setItem("total",total.toString());
+			}
+			if(typeof window !== undefined && window.localStorage.totalPage == undefined){
+				let totalPage = Math.ceil(blogs.edges.length/pageSize); 
+				window.localStorage.setItem("totalPage",totalPage.toString());
+			}
+
+			return (
+				<div>
+					<div>
+						{news.map(blog => (
+						<Link href={`/blog/${blog.id}`}>
+							<article class={style.block}>
+								<h2>{blog.details.title}</h2>
+								<div>
+									{
+										<span class={style.tag}>{blog.details.tags.split(",")[0]}</span>
+									}
+								</div>
+								<p class={style.preview}>
+									{blog.preview}
+								</p>
+							</article>
+								
+						</Link>
+					))}
+					</div>
+					<div>
+						
+						{ getIndex()}
+					</div>
 				</div>
-			</div>
-		);
+			);
+		}
+		
 	}
 }
 
@@ -107,7 +109,6 @@ function getIndex(){
 		var firstPage = Math.max(1,currPage-1);
 
 		var lastPage = Math.min(window.localStorage.totalPage , firstPage+7);
-	}
 	
 	console.log(firstPage , lastPage);
 	var arr = new Array(lastPage-firstPage+1);
@@ -133,6 +134,6 @@ function getIndex(){
 			</div>
 		</div>	
 	);
-	
+	}
 }
 export default blogs;
