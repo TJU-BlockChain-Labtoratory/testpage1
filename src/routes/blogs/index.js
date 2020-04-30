@@ -3,12 +3,22 @@ import { Link } from 'preact-router';
 import { usePrerenderData } from '@preact/prerender-data-provider';
 import style from './style';
 import { nextPage, prePage,toPage} from './functions.js'
-import {root} from 'window-or-global'
+import { useEffect } from 'preact/hooks/src';
 
 const numOfNews = 3;
 
 const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
+	var currPage;
+	useEffect(() => {
+		if(typeof window !== "undefind"){
+			currPage = Number(window.localStorage.currPage);
+		}
+		else{
+			currPage = 0;
+		}
+	},[]);
+		
 	return (
 	<div>
 		<div class={style.pageNewsAndNotices}>
@@ -35,13 +45,7 @@ function getNewsListing(data, isLoading ,pageSize) {
 	if (data && data.data) {
 		
 		
-			var currPage;
-			if(typeof window !== "undefind"){
-				currPage = Number(window.localStorage.currPage);
-			}
-			else{
-				currPage = 0;
-			}
+			
 			const { data: blogs } = data;
 			var news = new Array();
 			var j = currPage * pageSize;
