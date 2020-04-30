@@ -4,6 +4,7 @@ import { useEffect } from 'preact/hooks';
 import { usePrerenderData } from '@preact/prerender-data-provider';
 import style from './style';
 import { nextPage, prePage,toPage} from './functions.js'
+const numOfNews = 3;
 
 const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
@@ -13,7 +14,7 @@ const blogs = (props) => {
 	<div>
 		<div class={style.pageNewsAndNotices}>
 			<h1 class={style.pageTitle}>新闻动态</h1>
-			{ getNewsListing(data, isLoading,2) }
+			{ getNewsListing(data, isLoading,numOfNews) }
 		</div>
 	</div>
 	);
