@@ -21,7 +21,7 @@ const blogs = (props) => {
 
 function getNewsListing(data, isLoading ,pageSize) {
 	var currPage;
-	if(window !== undefined){
+	if(typeof window !== undefined){
 		currPage = Number(window.localStorage.currPage);
 	}
 
@@ -59,11 +59,11 @@ function getNewsListing(data, isLoading ,pageSize) {
 		}
 		console.log(j);
 
-		if(window !== undefined && window.localStorage.total == undefined){
+		if(typeof window !== undefined && window.localStorage.total == undefined){
 			let total = blogs.edges.length;
 		    window.localStorage.setItem("total",total.toString());
 		}
-		if(window !== undefined && window.localStorage.totalPage == undefined){
+		if(typeof window !== undefined && window.localStorage.totalPage == undefined){
 			let totalPage = Math.ceil(blogs.edges.length/pageSize); 
 			window.localStorage.setItem("totalPage",totalPage.toString());
 		}
@@ -101,7 +101,7 @@ function getNewsListing(data, isLoading ,pageSize) {
 
 
 function getIndex(){
-	if(window !== undefined){
+	if(typeof window !== undefined){
 		var currPage = Number(window.localStorage.currPage);
 		var firstPage = Math.max(1,currPage-1);
 

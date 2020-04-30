@@ -1,6 +1,6 @@
 import style from './style';
 function nextPage(currPage){
-    if(window !== undefined){
+    if(typeof window !== undefined){
         if(currPage == window.localStorage.totalPage-1){
                 alert("this is the last page!");
                 return;
@@ -12,7 +12,7 @@ function nextPage(currPage){
 }
 
 function prePage(currPage){
-    if(window !== undefined){
+    if(typeof window !== undefined){
         console.log(currPage);
         if(currPage == 0){
             alert("this is the first page!");
@@ -26,7 +26,7 @@ function prePage(currPage){
 }
 
 function toPage(destPage){
-    if(window !== undefined){
+    if(typeof window !== undefined){
         if(destPage < 0 || destPage >= window.localStorage.totalPage){
             alert("page "+destPage+" isn't exist!");
             return;
