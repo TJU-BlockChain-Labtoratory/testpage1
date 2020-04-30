@@ -1,10 +1,10 @@
 import style from './style';
 function nextPage(currPage){
-    if(currPage == localStorage.totalPage-1){
+    if(currPage == window.localStorage.totalPage-1){
         alert("this is the last page!");
         return;
     }
-    localStorage.currPage = (currPage+1).toString();
+    window.localStorage.currPage = (currPage+1).toString();
     window.location.reload();
 }
 
@@ -15,21 +15,21 @@ function prePage(currPage){
         return;
     }
     else{
-        localStorage.currPage = (currPage-1).toString();
+        window.localStorage.currPage = (currPage-1).toString();
 	    window.location.reload();
     }
 	
 }
 
 function toPage(destPage){
-    if(destPage < 0 || destPage >= localStorage.totalPage){
+    if(destPage < 0 || destPage >= window.localStorage.totalPage){
         alert("page "+destPage+" isn't exist!");
         return;
     }
     
     else{
         console.log(destPage);
-        localStorage.currPage = destPage.toString();
+        window.localStorage.currPage = destPage.toString();
         window.location.reload();
     }
    

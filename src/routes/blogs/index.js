@@ -8,7 +8,7 @@ const numOfNews = 3;
 
 const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
-	console.log(localStorage.getItem("currPage"));
+	console.log(window.localStorage.getItem("currPage"));
 	
 	return (
 	<div>
@@ -21,7 +21,7 @@ const blogs = (props) => {
 };
 
 function getNewsListing(data, isLoading ,pageSize) {
-	var currPage = Number(localStorage.currPage);
+	var currPage = Number(window.localStorage.currPage);
 	if (isLoading) {
 		return (
 			<article class={style.loadingPlaceholder}>
@@ -56,16 +56,16 @@ function getNewsListing(data, isLoading ,pageSize) {
 		}
 		console.log(j);
 
-		if(localStorage.total == undefined){
+		if(window.localStorage.total == undefined){
 			let total = blogs.edges.length;
-		    localStorage.setItem("total",total.toString());
+		    window.localStorage.setItem("total",total.toString());
 		}
-		if(localStorage.totalPage == undefined){
+		if(window.localStorage.totalPage == undefined){
 			let totalPage = Math.ceil(blogs.edges.length/pageSize); 
-			localStorage.setItem("totalPage",totalPage.toString());
+			window.localStorage.setItem("totalPage",totalPage.toString());
 		}
 
-		console.log(localStorage.total , localStorage.totalPage);
+		console.log(window.localStorage.total , window.localStorage.totalPage);
 		return (
 			<div>
 				<div>
@@ -99,10 +99,10 @@ function getNewsListing(data, isLoading ,pageSize) {
 
 
 function getIndex(){
-	var currPage = Number(localStorage.currPage);
+	var currPage = Number(window.localStorage.currPage);
 	var firstPage = Math.max(1,currPage-1);
 
-	var lastPage = Math.min(localStorage.totalPage , firstPage+7);
+	var lastPage = Math.min(window.localStorage.totalPage , firstPage+7);
 	console.log(firstPage , lastPage);
 	var arr = new Array(lastPage-firstPage+1);
     for(let i = 0 ; i < arr.length ; i++){
