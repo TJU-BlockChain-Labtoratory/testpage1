@@ -18,18 +18,18 @@ const blogs = (props) => {
 			currPage = 0;
 		}
 	},[]);
-		
+
 	return (
 	<div>
 		<div class={style.pageNewsAndNotices}>
 			<h1 class={style.pageTitle}>新闻动态</h1>
-			{ getNewsListing(data, isLoading,numOfNews) }
+			{ getNewsListing(data, isLoading,numOfNews, currPage) }
 		</div>
 	</div>
 	);
 };
 
-function getNewsListing(data, isLoading ,pageSize) {
+function getNewsListing(data, isLoading ,pageSize, currPage) {
 	
 
 	if (isLoading) {
