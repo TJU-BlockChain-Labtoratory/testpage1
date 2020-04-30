@@ -18,7 +18,7 @@ const Header = () => (
 );
 
 function toBlogs(){
-	if(typeof window !== undefined){
+	if(typeof window !== "undefind"){
 		if(window.localStorage.currPage){
 			window.localStorage.clear();
 		}

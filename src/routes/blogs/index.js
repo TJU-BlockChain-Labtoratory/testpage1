@@ -1,10 +1,10 @@
-import { h } from 'preact';
+import { h, Component } from 'preact';
 import { Link } from 'preact-router';
-import { useEffect } from 'preact/hooks';
 import { usePrerenderData } from '@preact/prerender-data-provider';
 import style from './style';
 import { nextPage, prePage,toPage} from './functions.js'
-import Members from '../members';
+import {root} from 'window-or-global'
+
 const numOfNews = 3;
 
 const blogs = (props) => {
@@ -34,7 +34,7 @@ function getNewsListing(data, isLoading ,pageSize) {
 	}
 	if (data && data.data) {
 		
-		if(typeof window !== undefined){
+		if(typeof window !== "undefind"){
 			var currPage;
 			currPage = Number(window.localStorage.currPage);
 			const { data: blogs } = data;
@@ -57,11 +57,11 @@ function getNewsListing(data, isLoading ,pageSize) {
 				}		     
 			}
 
-			if(typeof window !== undefined && window.localStorage.total == undefined){
+			if(typeof window !== "undefind" && window.localStorage.total == "undefind"){
 				let total = blogs.edges.length;
 				window.localStorage.setItem("total",total.toString());
 			}
-			if(typeof window !== undefined && window.localStorage.totalPage == undefined){
+			if(typeof window !== "undefind" && window.localStorage.totalPage == "undefind"){
 				let totalPage = Math.ceil(blogs.edges.length/pageSize); 
 				window.localStorage.setItem("totalPage",totalPage.toString());
 			}
@@ -101,7 +101,7 @@ function getNewsListing(data, isLoading ,pageSize) {
 
 
 function getIndex(){
-	if(typeof window !== undefined){
+	if(typeof window !== "undefind){
 		var currPage = Number(window.localStorage.currPage);
 		var firstPage = Math.max(1,currPage-1);
 
