@@ -3,7 +3,7 @@ import { Link } from 'preact-router';
 import { usePrerenderData } from '@preact/prerender-data-provider';
 import style from './style';
 import { nextPage, prePage,toPage} from './functions.js'
-import { useEffect } from 'preact/hooks/src';
+import { useEffect } from 'preact/hooks';
 
 const numOfNews = 3;
 
