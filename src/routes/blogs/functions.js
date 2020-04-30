@@ -13,7 +13,6 @@ function nextPage(currPage){
 
 function prePage(currPage){
     if(typeof window !== undefined){
-        console.log(currPage);
         if(currPage == 0){
             alert("this is the first page!");
             return;
@@ -33,7 +32,6 @@ function toPage(destPage){
         }
         
         else{
-            console.log(destPage);
             window.localStorage.currPage = destPage.toString();
             window.location.reload();
         }    

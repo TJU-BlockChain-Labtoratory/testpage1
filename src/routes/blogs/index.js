@@ -38,7 +38,6 @@ function getNewsListing(data, isLoading ,pageSize) {
 			var currPage;
 			currPage = Number(window.localStorage.currPage);
 			const { data: blogs } = data;
-			console.log(blogs.currPage);
 			var news = new Array();
 			var j = currPage * pageSize;
 
@@ -47,7 +46,6 @@ function getNewsListing(data, isLoading ,pageSize) {
 				let judge = temp.every(function (temp){
 					return temp != "achievement";
 				});
-				console.log(i , j , temp.join(),judge);
 				if(judge == true){
 					
 						news[j] = blogs.edges[i];
@@ -58,7 +56,6 @@ function getNewsListing(data, isLoading ,pageSize) {
 					}
 				}		     
 			}
-			console.log(j);
 
 			if(typeof window !== undefined && window.localStorage.total == undefined){
 				let total = blogs.edges.length;
@@ -110,7 +107,6 @@ function getIndex(){
 
 		var lastPage = Math.min(window.localStorage.totalPage , firstPage+7);
 	
-	console.log(firstPage , lastPage);
 	var arr = new Array(lastPage-firstPage+1);
     for(let i = 0 ; i < arr.length ; i++){
         arr[i] = i;
