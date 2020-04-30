@@ -18,10 +18,11 @@ const Header = () => (
 );
 
 function toBlogs(){
-	if(window.localStorage.currPage){
-		window.localStorage.clear();
+	if(window !== undefined){
+		if(window.localStorage.currPage){
+			window.localStorage.clear();
+		}
+		window.localStorage.setItem("currPage","0");
 	}
-	window.localStorage.setItem("currPage","0");
-	console.log(window.localStorage.currPage);
 }
 export default Header;
