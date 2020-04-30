@@ -20,10 +20,7 @@ const blogs = (props) => {
 };
 
 function getNewsListing(data, isLoading ,pageSize) {
-	var currPage;
-	if(typeof window !== undefined){
-		currPage = Number(window.localStorage.currPage);
-	}
+	
 
 	if (isLoading) {
 		return (
@@ -36,6 +33,10 @@ function getNewsListing(data, isLoading ,pageSize) {
 		);
 	}
 	if (data && data.data) {
+		var currPage;
+		if(typeof window !== undefined){
+			currPage = Number(window.localStorage.currPage);
+		}
 		const { data: blogs } = data;
 		console.log(blogs.currPage);
 		var news = new Array();
