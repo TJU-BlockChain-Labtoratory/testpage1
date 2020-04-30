@@ -1,21 +1,26 @@
 import { h } from 'preact';
 import { Link } from 'preact-router';
+import { useEffect } from 'preact/hooks';
 import { usePrerenderData } from '@preact/prerender-data-provider';
 import style from './style';
+import { nextPage, prePage,toPage} from './functions.js'
 
 const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
+	console.log(localStorage.getItem("currPage"));
+	
 	return (
 	<div>
 		<div class={style.pageNewsAndNotices}>
 			<h1 class={style.pageTitle}>新闻动态</h1>
-			{ getNewsListing(data, isLoading) }
+			{ getNewsListing(data, isLoading,2) }
 		</div>
 	</div>
 	);
 };
 
-function getNewsListing(data, isLoading) {
+function getNewsListing(data, isLoading ,pageSize) {
+	var currPage = Number(localStorage.currPage);
 	if (isLoading) {
 		return (
 			<article class={style.loadingPlaceholder}>
@@ -26,40 +31,101 @@ function getNewsListing(data, isLoading) {
 			</article>
 		);
 	}
-	console.log(data);
 	if (data && data.data) {
 		const { data: blogs } = data;
-		
-		var notnews = new Array();
-		var j = 0;
-		for( var i = 0; i < blogs.edges.length ; i++ ){
-			 notnews[j] = blogs.edges[i];
-			 console.log()
-		     j++;
-		  }
-		
+		console.log(blogs.currPage);
+		var news = new Array();
+		var j = currPage * pageSize;
 
+		for(let i = j; i < blogs.edges.length; i++ ){
+			var temp = blogs.edges[i].details.tags.split(',');
+			let judge = temp.every(function (temp){
+				return temp != "achievement";
+			});
+			console.log(i , j , temp.join(),judge);
+			if(judge == true){
+				
+					news[j] = blogs.edges[i];
+					j++;
+				
+				if( j >= ((currPage+1)*pageSize)){
+					break;
+				}
+			}		     
+		}
+		console.log(j);
+
+		if(localStorage.total == undefined){
+			let total = blogs.edges.length;
+		    localStorage.setItem("total",total.toString());
+		}
+		if(localStorage.totalPage == undefined){
+			let totalPage = Math.ceil(blogs.edges.length/pageSize); 
+			localStorage.setItem("totalPage",totalPage.toString());
+		}
+
+		console.log(localStorage.total , localStorage.totalPage);
 		return (
-			<>
-				{notnews.map(blog => (
-				<Link href={`/blog/${blog.id}`}>
-					<article class={style.block}>
-						<h2>{blog.details.title}</h2>
-						<div>
-							{
-								 <span class={style.tag}>{blog.details.time}</span>
-							}
-						</div>
-						<p class={style.preview}>
-							{blog.preview}
-						</p>
-					</article>
-						
-				</Link>
-			))}
-			</>
+			<div>
+				<div>
+					{news.map(blog => (
+					<Link href={`/blog/${blog.id}`}>
+						<article class={style.block}>
+							<h2>{blog.details.title}</h2>
+							<div>
+								{
+									<span class={style.tag}>{blog.details.tags.split(",")[0]}</span>
+								}
+							</div>
+							<p class={style.preview}>
+								{blog.preview}
+							</p>
+						</article>
+							
+					</Link>
+				))}
+				</div>
+				<div>
+					
+					{ getIndex()}
+				</div>
+			</div>
 		);
 	}
 }
 
+
+
+
+function getIndex(){
+	var currPage = Number(localStorage.currPage);
+	var firstPage = Math.max(1,currPage-1);
+
+	var lastPage = Math.min(localStorage.totalPage , firstPage+7);
+	console.log(firstPage , lastPage);
+	var arr = new Array(lastPage-firstPage+1);
+    for(let i = 0 ; i < arr.length ; i++){
+        arr[i] = i;
+    }
+
+	return (
+		<div class={style.indexContainer}>
+			<div class={style.pagination}>
+				<ul class={style.index}>
+					<li><a href =""onClick={() => prePage(currPage)}>«</a></li>
+					{
+						arr.map((value) =>{
+							if(value+firstPage == currPage+1){
+								return <li><a class={style.active}>{value+firstPage}</a></li>
+							}
+							return <li><a href="" onClick={()=>toPage(value+firstPage-1)}>{value+firstPage}</a></li>
+						})
+					}
+					<li><a href =""onClick={() => nextPage(currPage)}>»</a></li>
+				</ul>
+			</div>
+		</div>	
+	);
+	
+}
 export default blogs;
