@@ -37,7 +37,10 @@ function getNewsListing(data, isLoading ,pageSize) {
 		
 			var currPage;
 			if(typeof window !== "undefind"){
-			currPage = Number(window.localStorage.currPage);
+				currPage = Number(window.localStorage.currPage);
+			}
+			else{
+				currPage = 0;
 			}
 			const { data: blogs } = data;
 			var news = new Array();
