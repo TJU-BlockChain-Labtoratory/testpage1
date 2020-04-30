@@ -101,7 +101,7 @@ function getNewsListing(data, isLoading ,pageSize) {
 
 
 function getIndex(){
-	if(typeof window !== "undefind){
+	if(typeof window !== "undefind"){
 		var currPage = Number(window.localStorage.currPage);
 		var firstPage = Math.max(1,currPage-1);
 
