@@ -65,15 +65,17 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 					}
 				}		     
 			}
-
-			if(typeof window !== "undefind" && window.localStorage.total == "undefind"){
-				let total = blogs.edges.length;
-				window.localStorage.setItem("total",total.toString());
-			}
-			if(typeof window !== "undefind" && window.localStorage.totalPage == "undefind"){
-				let totalPage = Math.ceil(blogs.edges.length/pageSize); 
-				window.localStorage.setItem("totalPage",totalPage.toString());
-			}
+			useEffect(() => {
+				if(typeof window !== "undefind" && window.localStorage.total == "undefind"){
+					let total = blogs.edges.length;
+					window.localStorage.setItem("total",total.toString());
+				}
+				if(typeof window !== "undefind" && window.localStorage.totalPage == "undefind"){
+					let totalPage = Math.ceil(blogs.edges.length/pageSize); 
+					window.localStorage.setItem("totalPage",totalPage.toString());
+				}
+			},[]);
+			
 
 			return (
 				<div>
