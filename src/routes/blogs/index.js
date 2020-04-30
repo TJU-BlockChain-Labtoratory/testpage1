@@ -34,9 +34,11 @@ function getNewsListing(data, isLoading ,pageSize) {
 	}
 	if (data && data.data) {
 		
-		if(typeof window !== "undefind"){
+		
 			var currPage;
+			if(typeof window !== "undefind"){
 			currPage = Number(window.localStorage.currPage);
+			}
 			const { data: blogs } = data;
 			var news = new Array();
 			var j = currPage * pageSize;
@@ -94,7 +96,7 @@ function getNewsListing(data, isLoading ,pageSize) {
 			);
 		}
 		
-	}
+	
 }
 
 
