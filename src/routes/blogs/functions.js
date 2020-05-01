@@ -1,43 +1,37 @@
-import style from './style';
-function nextPage(currPage){
-    if(typeof window !== "undefind"){
-        if(currPage == window.localStorage.totalPage-1){
+import {route} from 'preact-router';
+function nextPage(currPage ,totalPage, url){
+
+        if(currPage == totalPage-1){
                 alert("this is the last page!");
                 return;
             }
-            window.localStorage.currPage = (currPage+1).toString();
-            window.location.reload();
-    }
+        var destPage = Number(currPage)+1;
+        var destUrl = url.concat(destPage.toString());
+        console.log(destUrl);
+        route(destUrl);    
     
 }
 
-function prePage(currPage){
-    if(typeof window !== "undefind"){
+function prePage(currPage , url){
+
         if(currPage == 0){
             alert("this is the first page!");
             return;
         }
-        else{
-            window.localStorage.currPage = (currPage-1).toString();
-            window.location.reload();
-        }
-    }
+        var destPage = Number(currPage)-1;
+        var destUrl = url.concat(destPage.toString());
+        console.log(destUrl);
+        route(destUrl);    
 }
 
-function toPage(destPage){
-    if(typeof window !== "undefind"){
-        if(destPage < 0 || destPage >= window.localStorage.totalPage){
+function toPage(destPage, totalPage , url){
+        if(destPage < 0 || destPage >= totalPage){
             alert("page "+destPage+" isn't exist!");
             return;
         }
-        
-        else{
-            window.localStorage.currPage = destPage.toString();
-            window.location.reload();
-        }    
-    }
-    
-   
+        var destUrl = url.concat(destPage.toString());
+        console.log(destUrl);
+        route(destUrl);    
 }
 
 

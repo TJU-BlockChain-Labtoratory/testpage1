@@ -5,20 +5,16 @@ import style from './style';
 import { nextPage, prePage,toPage} from './functions.js'
 import { useEffect } from 'preact/hooks';
 
+
 const numOfNews = 3;
 
 const blogs = (props) => {
+	if(props.url.lastIndexOf("/") == props.url.length-2){
+		props.url = props.url.substr(0,props.url.length-2);
+	}
 	const [data, isLoading] = usePrerenderData(props);
-	var currPage;
-	useEffect(() => {
-		if(typeof window !== "undefind"){
-			currPage = Number(window.localStorage.currPage);
-		}
-		else{
-			currPage = 0;
-		}
-	},[]);
 
+	var currPage = Number(props.currPage);
 	return (
 	<div>
 		<div class={style.pageNewsAndNotices}>
@@ -30,10 +26,9 @@ const blogs = (props) => {
 };
 
 function getNewsListing(data, isLoading ,pageSize, currPage) {
-	
-
 	if (isLoading) {
 		return (
+			
 			<article class={style.loadingPlaceholder}>
 				<h2 class={`${style.blogtitle} loading`}>&nbsp;</h2>
 				<div class={`${style.loadingBody} loading`}>&nbsp;</div>
@@ -43,13 +38,10 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 		);
 	}
 	if (data && data.data) {
-		
-		
-			
 			const { data: blogs } = data;
 			var news = new Array();
 			var j = currPage * pageSize;
-
+			console.log(currPage);
 			for(let i = j; i < blogs.edges.length; i++ ){
 				var temp = blogs.edges[i].details.tags.split(',');
 				let judge = temp.every(function (temp){
@@ -65,17 +57,9 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 					}
 				}		     
 			}
-			useEffect(() => {
-				if(typeof window !== "undefind" && window.localStorage.total == "undefind"){
-					let total = blogs.edges.length;
-					window.localStorage.setItem("total",total.toString());
-				}
-				if(typeof window !== "undefind" && window.localStorage.totalPage == "undefind"){
-					let totalPage = Math.ceil(blogs.edges.length/pageSize); 
-					window.localStorage.setItem("totalPage",totalPage.toString());
-				}
-			},[]);
-			
+
+			let totalPage = Math.ceil(blogs.edges.length/pageSize); 
+
 
 			return (
 				<div>
@@ -99,25 +83,26 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 					</div>
 					<div>
 						
-						{ getIndex()}
+						{ getIndex(data.url, currPage, totalPage)}
 					</div>
 				</div>
 			);
 		}
-		
+		else{
+			return(
+				<div>no data!</div>
+			)
+		}
 	
 }
 
 
 
 
-function getIndex(){
-	if(typeof window !== "undefind"){
-		var currPage = Number(window.localStorage.currPage);
+function getIndex(url, currPage ,totalPage){
 		var firstPage = Math.max(1,currPage-1);
-
-		var lastPage = Math.min(window.localStorage.totalPage , firstPage+7);
-	
+		var lastPage = Math.min(totalPage , firstPage+7);
+		console.log(firstPage,lastPage);
 	var arr = new Array(lastPage-firstPage+1);
     for(let i = 0 ; i < arr.length ; i++){
         arr[i] = i;
@@ -127,20 +112,20 @@ function getIndex(){
 		<div class={style.indexContainer}>
 			<div class={style.pagination}>
 				<ul class={style.index}>
-					<li><a href =""onClick={() => prePage(currPage)}>«</a></li>
+					<li><a href =""onClick={() => prePage(currPage , url)}>«</a></li>
 					{
 						arr.map((value) =>{
 							if(value+firstPage == currPage+1){
 								return <li><a class={style.active}>{value+firstPage}</a></li>
 							}
-							return <li><a href="" onClick={()=>toPage(value+firstPage-1)}>{value+firstPage}</a></li>
+							return <li><a href="" onClick={()=>toPage(value+firstPage-1 , totalPage , url)}>{value+firstPage}</a></li>
 						})
 					}
-					<li><a href =""onClick={() => nextPage(currPage)}>»</a></li>
+					<li><a href =""onClick={() => nextPage(currPage, totalPage ,url)}>»</a></li>
 				</ul>
 			</div>
 		</div>	
 	);
-	}
+
 }
 export default blogs;
