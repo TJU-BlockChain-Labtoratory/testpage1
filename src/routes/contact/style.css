@@ -1,16 +1,19 @@
 .pageContact {
+  margin : 110px 50px 0;
   padding: 0 5%;
 }
 
-.pageTitle {
+.pageTitle 
+{
   position: relative;
   display: inline-block;
   font-weight: 500;
+  letter-spacing: 2px;
 }
 
 .pageTitle:after {
   position: absolute;
-  bottom: -5px;
+  bottom: -7px;
   left: 0px;
   content: '';
   width: 75%;
@@ -19,15 +22,10 @@
 
 .pageBody {
   font-size: 1.2rem;
-  flex: 1;
+  margin :10px 50px 0;
+  flex-direction: column;
 }
 
-.pageContact input, .pageContact textarea {
-  width: 100%;
-  font-size: 1.1rem;
-  padding: 8px;
-  border: 1px solid #999;
-}
 
 .pageContact .formWrapper {
   display: flex;
@@ -35,12 +33,6 @@
 
 .pageContact form {
   flex: 1;
-}
-
-.pageContact button {
-  padding: 8px;
-  font-size: 1rem;
-  border-radius: 5px;
 }
 
 @media all and (max-width: 728px) {
