@@ -9,7 +9,7 @@ import Blogs from '../routes/blogs';
 import Blog from '../routes/blog';
 import Contact from '../routes/contact';
 import Members from '../routes/members';
-import Others from '../routes/others';
+import Achievement from '../routes/achievement';
 import Menu from '../routes/menu';
 import ContactSuccess from '../routes/contact-success';
 import NotFoundPage from '../routes/notfound';
@@ -43,7 +43,7 @@ export default class App extends Component {
 						<Blog path="/blog/:name" />
 						<Members path="/members/"/>
 						<Contact path="/contact/" />
-						<Others path="/others" /> 
+						<Achievement path="/achievement" /> 
 						<Menu path="/menu" /> 
 						<ContactSuccess path="/contact-success" />
 						<NotFoundPage type="404" default />

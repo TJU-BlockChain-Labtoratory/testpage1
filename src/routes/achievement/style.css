@@ -1,0 +1,74 @@
+.pageContact {
+  margin : 110px 50px 0;
+  padding: 0 5%;
+}
+
+.pageTitle 
+{
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.pageTitle:after {
+  position: absolute;
+  bottom: -7px;
+  left: 0px;
+  content: '';
+  width: 75%;
+  border-bottom: 2px solid #FFC107;
+}
+
+.pageBody {
+  font-size: 1.2rem;
+  margin :10px 50px 0;
+  flex-direction: column;
+}
+
+.block{
+  width: 100%;
+  display: flex;
+  margin: 15px 0 30px;
+  flex:1 1 auto;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 0 10px 5px rgb(232, 232, 255);
+}
+
+.imageContainer{
+  width:25%;
+}
+
+.imageContainer img{
+  height: 250px;
+  width: 200px;
+  padding: 20px;
+}
+
+.introduction{
+  width: 75%;
+  padding :0 20px 20px 20px;
+  line-height: 1.5em;
+}
+
+
+.introduction h2{
+  font-family: 'Microsoft Yahei';
+  letter-spacing: 2px;
+}
+
+.introduction font{
+  font-size: 14px;
+  color: rgb(146, 145, 145)
+}
+
+.pageContact .formWrapper {
+  display: flex;
+}
+
+@media all and (max-width: 728px) {
+	.formWrapper {
+		flex-direction: column;
+  }
+}

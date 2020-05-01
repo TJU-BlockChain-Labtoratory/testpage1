@@ -1,18 +1,19 @@
 .pageNewsAndNotices {
-  margin : left;
+  margin : 110px 50px 0;
   padding: 0 5%;
-  float: left;
-  height: 600px;
-  width: 100%;
-  /*overflow-y: scroll;*/
-  /*border:5px double #3092ee7c; */
 }
 
-.pageTitle {
+.pageTitle 
+{
   position: relative;
   display: inline-block;
   font-weight: 500;
   letter-spacing: 2px;
+}
+
+.pageBody {
+  margin :20px 50px 0;
+  flex-direction: column;
 }
 
 .pageTitle:after {
@@ -49,7 +50,7 @@ h2 {
   width: 100%;
   margin: 15px 0 30px;
   padding: 20px ;
-  flex:1;
+  flex:1 1 auto;
   box-shadow: 0 0 10px 5px rgb(232, 232, 255);
 }
 
@@ -90,7 +91,8 @@ h2 {
 }
 
 .indexContainer{
-	text-align: center;
+  text-align: center;
+  margin-bottom: 20px;
 }
 .pagination{
   display: inline-block;

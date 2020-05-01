@@ -3,7 +3,6 @@ import { Link } from 'preact-router';
 import { usePrerenderData } from '@preact/prerender-data-provider';
 import style from './style';
 import { nextPage, prePage,toPage} from './functions.js'
-import { useEffect } from 'preact/hooks';
 
 
 const numOfNews = 3;
@@ -38,10 +37,11 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 		);
 	}
 	if (data && data.data) {
+		console.log(data.data)
 			const { data: blogs } = data;
 			var news = new Array();
 			var j = currPage * pageSize;
-			console.log(currPage);
+
 			for(let i = j; i < blogs.edges.length; i++ ){
 				var temp = blogs.edges[i].details.tags.split(',');
 				let judge = temp.every(function (temp){
@@ -62,8 +62,8 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 
 
 			return (
-				<div>
-					<div>
+				<div class={style.formWrapper}>
+					<div class={style.pageBody}>
 						{news.map(blog => (
 						<Link href={`/blog/${blog.id}`}>
 							<article class={style.block}>
@@ -88,9 +88,16 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 				</div>
 			);
 		}
-		else{
+
+		else if(data && !data.data){
 			return(
-				<div>no data!</div>
+				<div class={style.formWrapper}>
+					<div class={style.pageBody}>
+						<div>
+							暂无新闻公告
+						</div>
+					</div>
+				</div>
 			)
 		}
 	
@@ -102,7 +109,6 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 function getIndex(url, currPage ,totalPage){
 		var firstPage = Math.max(1,currPage-1);
 		var lastPage = Math.min(totalPage , firstPage+7);
-		console.log(firstPage,lastPage);
 	var arr = new Array(lastPage-firstPage+1);
     for(let i = 0 ; i < arr.length ; i++){
         arr[i] = i;
