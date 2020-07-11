@@ -2,8 +2,8 @@ import { h, Component } from 'preact';
 import { Link } from 'preact-router';
 import { usePrerenderData } from '@preact/prerender-data-provider';
 import style from './style';
-import { nextPage, prePage,toPage} from './functions.js'
-
+import { nextPage, prePage,toPage} from './functions.js';
+import Bottom from '../../components/bottom';
 
 const numOfNews = 3;
 
@@ -18,7 +18,11 @@ const blogs = (props) => {
 	<div>
 		<div class={style.pageNewsAndNotices}>
 			<h1 class={style.pageTitle}>新闻动态</h1>
+			<h1 class={style.pageTitle}>行业洞察</h1>  
 			{ getNewsListing(data, isLoading,numOfNews, currPage) }
+		</div>
+		<div class={style.wholepage}>
+			<Bottom></Bottom>
 		</div>
 	</div>
 	);
@@ -62,12 +66,15 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 
 
 			return (
-				<div class={style.formWrapper}>
+				 <div class={style.formWrapper}>
 					<div class={style.pageBody}>
 						{news.map(blog => (
 						<Link href={`/blog/${blog.id}`}>
 							<article class={style.block}>
 								<h2>{blog.details.title}</h2>
+								<p>
+									{blog.details.date.split('T')[0]}
+								</p>
 								<div>
 									{
 										<span class={style.tag}>{blog.details.tags.split(",")[0]}</span>
@@ -77,15 +84,14 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 									{blog.preview}
 								</p>
 							</article>
-								
 						</Link>
 					))}
 					</div>
 					<div>
-						
 						{ getIndex(data.url, currPage, totalPage)}
 					</div>
-				</div>
+				 </div>
+				
 			);
 		}
 
@@ -98,6 +104,7 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 						</div>
 					</div>
 				</div>
+				
 			)
 		}
 	

@@ -1,8 +1,10 @@
 import { h } from 'preact';
 import style from './style';
+import Bottom from '../../components/bottom';
 
 const Members = (props) => {
 	return (
+		<div>
 		<div class={style.pageContact}>
 			<h1 class={style.pageTitle}>主要研究及管理人员</h1>
 			<div class={style.formWrapper}>
@@ -36,6 +38,8 @@ const Members = (props) => {
 					</div>
 				</div>
 			</div>
+		</div>
+		  <Bottom></Bottom>
 		</div>
 	);	
 };

@@ -3,6 +3,7 @@ import { Router } from 'preact-router';
 import { Provider } from '@preact/prerender-data-provider';
 import Header from './header';
 
+
 // Code-splitting is automated for routes
 import Home from '../routes/home';
 import Blogs from '../routes/blogs';

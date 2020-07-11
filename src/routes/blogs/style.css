@@ -1,3 +1,4 @@
+
 .pageNewsAndNotices {
   margin : 110px 50px 0;
   padding: 0 5%;
@@ -9,6 +10,7 @@
   display: inline-block;
   font-weight: 500;
   letter-spacing: 2px;
+  margin-right: 50px;
 }
 
 .pageBody {
@@ -46,6 +48,7 @@ h2 {
 .tag:first-child {
   margin-left: 0px;
 }
+
 .block{
   width: 100%;
   margin: 15px 0 30px;
@@ -61,6 +64,11 @@ h2 {
   max-height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.time{
+  margin-right: 0px;
+  text-align:left;
 }
 
 .loadingPlaceholder .blogtitle {

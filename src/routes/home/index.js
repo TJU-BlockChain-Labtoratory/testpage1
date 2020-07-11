@@ -1,6 +1,7 @@
 import { h } from "preact";
 import { useEffect } from 'preact/hooks';
 import style from "./style";
+import Bottom from '../../components/bottom';
 
 const Home = () => {
 
@@ -17,11 +18,9 @@ const Home = () => {
 	},[]);
 
 	return (
+		<div >
 		<div class={style.home}>
 			<div class={style.about}>
-				<div class={style.imageContainer}>
-					<div class={style.image} />
-				</div>
 				<div class={style.quote}>
 					<div class={style.details}>
 						<h2>天津大学-好扑科技区块链实验室</h2>
@@ -33,10 +32,12 @@ const Home = () => {
 						</p>
 					</div>
 				</div>
+				<div class={style.imageContainer}>
+					<div class={style.image} />
+				</div>
 			</div>
-			<div class={style.bio}>
-				
-			</div>
+		</div>
+		<Bottom></Bottom>
 		</div>
 	);
 };

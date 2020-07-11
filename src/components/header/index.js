@@ -11,7 +11,6 @@ const Header = () => (
 				<Link activeClassName={style.active} href={`/blogs/${0}`}>新闻公告</Link>
 				<Link activeClassName={style.active} href="/members">主要成员</Link>
 				<Link activeClassName={style.active} href="/achievement">科研成果</Link>
-				<Link activeClassName={style.active} href="/contact">联系我们</Link>
 			</nav>
 		</header>
 	</div>
