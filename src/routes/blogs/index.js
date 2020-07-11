@@ -72,9 +72,6 @@ function getNewsListing(data, isLoading ,pageSize, currPage) {
 						<Link href={`/blog/${blog.id}`}>
 							<article class={style.block}>
 								<h2>{blog.details.title}</h2>
-								<p>
-									{blog.details.date.split('T')[0]}
-								</p>
 								<div>
 									{
 										<span class={style.tag}>{blog.details.tags.split(",")[0]}</span>
