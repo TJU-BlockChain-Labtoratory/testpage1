@@ -4,8 +4,8 @@
 }
 
 .bottom {
-	height: 150px;
-	background-color: rgba(0, 81, 157, 0.733);
+	height: 130px;
+	background-color: rgb(39, 40, 44);
 	z-index:1;
 	margin-left: -28px;
 	top: 0;
@@ -26,17 +26,19 @@
 
 .bottom img{
 	float : left;
-	padding: 15px 170px;
+	padding: 20px 100px;
 	
 }
 
 .bottom nav {
 	float: right;
 	font-size: 15px;
-	padding: 0px 150px;
+	color: white;
+	padding: 5px 150px 0px;
 	margin-left: 5px;
 }
 .bottom nav p {
+	text-align: right;
 	font-size:15px;
 	padding:0px 80px;
 }
