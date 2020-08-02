@@ -14,6 +14,7 @@ import Achievement from '../routes/achievement';
 import Menu from '../routes/menu';
 import ContactSuccess from '../routes/contact-success';
 import NotFoundPage from '../routes/notfound';
+import QR_code from '../routes/QR_code';
 /*
 App:网页函数所在，网页的一些预设
 */
@@ -48,6 +49,7 @@ export default class App extends Component {
 						<Menu path="/menu" /> 
 						<ContactSuccess path="/contact-success" />
 						<NotFoundPage type="404" default />
+						<QR_code path="/QR_code" />
 					</Router>
 				</div>
 			</Provider>
