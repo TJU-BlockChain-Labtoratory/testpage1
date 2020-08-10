@@ -17,8 +17,8 @@ const blogs = (props) => {
 	return (
 	<div>
 		<div class={style.pageNewsAndNotices}>
-			<h1 class={style.pageTitle}>新闻动态</h1>
-			<Link class={style.pageTitle2} href="/QR_code">行业洞察</Link>
+			<Link class={style.pageTitle} href={`/blogs/${0}`}>新闻动态</Link>
+			<Link class={style.pageTitle} href="/QR_code">行业洞察</Link>  
 			{ getNewsListing(data, isLoading,numOfNews, currPage) }
 		</div>
 		<div class={style.wholepage}>

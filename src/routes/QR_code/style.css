@@ -4,6 +4,31 @@
   width: 100%;
 }
 
+.pageNewsAndNotices {
+	margin : 110px 50px 0;
+	padding: 0 5%;
+  }
+
+.pageTitle 
+{
+  position: relative;
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+.pageTitle:after {
+	position: absolute;
+	bottom: -7px;
+	left: 0px;
+	content: '';
+	width: 75%;
+	border-bottom: 2px solid #FFC107;
+  }
+
 .about {
   display: flex;
 }

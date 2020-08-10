@@ -9,7 +9,7 @@ const Achievement = (props) => {
 			<div class={style.formWrapper}>
 				<p class={style.pageBody}>
 					<div>
-					  敬请期待<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					  敬请期待
 					</div>
 				</p>
 			</div>
